@@ -49,12 +49,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-.gitignore
-.idea/compiler.xml
-.idea/inspectionProfiles/
-.idea/javaInterview.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
 target/
+.idea/
