@@ -1,7 +1,7 @@
 package com.strongant.poi;
 
-import org.apache.poi.xslf.usermodel.XMLSlideShow;
-import org.apache.poi.xslf.usermodel.XSLFSlide;
+/*import org.apache.poi.xslf.usermodel.XMLSlideShow;
+import org.apache.poi.xslf.usermodel.XSLFSlide;*/
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class PPTToImage {
 	public static void main(String[] args) throws Exception {
-		FileInputStream is = new FileInputStream("src/1435896292-59bd46ef5f7ff.pptx");
+		/*FileInputStream is = new FileInputStream("src/1435896292-59bd46ef5f7ff.pptx");
 		XMLSlideShow ppt = new XMLSlideShow(is);
 		is.close();
 
@@ -44,7 +44,7 @@ public class PPTToImage {
 			FileOutputStream out = new FileOutputStream("slide-" + (i + 1) + ".png");
 			javax.imageio.ImageIO.write(img, "png", out);
 			out.close();
-		}
+		}*/
 
 	}
 
