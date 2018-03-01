@@ -212,7 +212,7 @@ jvm中的CAS操作是基于处理器的CMPXCHG指令实现的，CAS存在三个�
 * 循环时间长开销大
 * 只能保证一个共享变量的原子操作
 CAS 有3个操作数，内存值V，旧的预期值A，要修改的新值B。当且仅当预期值A和内存值V相同时，将内存值V修改为B，否则什么都不做。
-CAS通过调用JNI的代码实现的。JNI:Java Native Interface为JAVA本地调用，允许java调用其他语言。而 compareAndSwapInt 就是借助C来调用CPU底层指令实现的。
+CAS通过调用JNI的代码实现的。JNI:Java Native Interface为JAVA本地调用，允许 java 调用其他语言。而 compareAndSwapInt 就是借助C来调用CPU底层指令实现的。
 
 
 20. Volatile 关键字的作用？
@@ -220,9 +220,9 @@ CAS通过调用JNI的代码实现的。JNI:Java Native Interface为JAVA本地调
 
 21. synchronized 实现原理？
 普通同步方法，锁是当前实例对象
-静态同步方法，锁是当前类的class对象
+静态同步方法，锁是当前类的 class 对象
 同步方法块，锁是括号里面的对象
-同步代码块是使用monitorenter和monitorexit指令实现的，同步方法依靠的是方法修饰符上的ACC_SYNCHRONIZED实现。 
+同步代码块是使用 monitorenter 和 monitorexit 指令实现的，同步方法依靠的是方法修饰符上的 ACC_SYNCHRONIZED 实现。 
 
 22. Spring 中哪些类是单例的？
 GlobalAdvisorAdapterRegistry
