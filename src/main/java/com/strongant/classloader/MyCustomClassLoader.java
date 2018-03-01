@@ -57,7 +57,7 @@ public class MyCustomClassLoader extends ClassLoader {
 		loader3.setPath("src/com/strongant/classloader/test/classloader3");
 
 		test(loader2);
-		test(loader3);
+		//test(loader3);
 	}
 
 	public static void test(ClassLoader classLoader) throws ClassNotFoundException, IllegalAccessException,
@@ -73,7 +73,12 @@ public class MyCustomClassLoader extends ClassLoader {
 
 		try {
 			this.name = this.name.replace(".", "//");
-			is = new FileInputStream(new File(path + name + fileType));
+			String filePath = path + name + fileType;
+			System.out.println("filePath: " + filePath);
+			if (!new File(filePath).exists()) {
+				return null;
+			}
+			is = new FileInputStream(new File(filePath));
 			byteArrayOutputStream = new ByteArrayOutputStream();
 
 			int ch = 0;

@@ -150,5 +150,79 @@ Java 中的 static 变量归相应的类所有，它的值对于类的所有实�
 当对象通过传引用调用时，对象本身没有被传递，而传递的是对象的一个引用，会反映到任何出现这原对象的地方。
 
 14. Java中的两种异常是什么?它们之间的区别?
-Java有两种类型的异常:checked与unchecked(检查与未检查) 异常. 如果unchecked异常可能会在方法或构造函数的执行时被抛出从而蔓延到方法或构造函数的外部, 它们也不需要要在方法或构造函数中声明throws子句。然而, checked异常必须通过方法或构造函数的throws子句声明。
+Java 有两种类型的异常: checked 与 unchecked (检查与未检查) 异常. 如果 unchecked 异常可能会在方法或构造函数的执行时被抛出从而蔓延到方法或构造函数的外部, 它们也不需要要在方法或构造函数中声明 throws 子句。然而, checked 异常必须通过方法或构造函数的 throws 子句声明。
 
+15. 写一个Singleton出来?
+第一种:
+```java
+public class Singleton {
+	private static instance = new Singleton();
+	public static Singleton newInstance() {
+		return instance;
+	}
+}
+```
+第二种：
+```java
+public class Singleton {
+	private static Singleton instance = null;
+	public static synchronized Singleton getInstance() {
+		// 使用时再生成， 提高效率
+		if (instance == null) {
+			instance = new Singleton();
+		}
+		return instance;
+	}
+}
+```
+第三种:
+```java
+// 静态内部类  JVM 保证线程安全
+public class Singleton {
+	public static class SingletonHolder {
+		private static  final  Singleton INSTANCE = new Singleton();
+	}
+	
+	private Singleton() {}
+	
+	public static final Singleton getInstance() {
+		return SingletonHolder.INSTANCE;
+	}
+}
+```
+第四种：
+```java
+// 使用枚举
+public enum Singleton {
+	INSTANCE;
+}
+```
+16. Java 泛型类在什么时候确定类型？
+在编译期间确定变量类型。类型擦除。
+
+17. Thread 和 Runnable 的区别？
+Thread 类底层实现了 Runnable 接口，Thread 属于 Runnable 的子类。
+
+18. Redis 中如何实现一次请求批量插入多条数据？
+使用 Redis 的管道或者
+
+19. CAS 算法的实现原理？
+jvm中的CAS操作是基于处理器的CMPXCHG指令实现的，CAS存在三个问题：
+* ABA问题
+* 循环时间长开销大
+* 只能保证一个共享变量的原子操作
+CAS 有3个操作数，内存值V，旧的预期值A，要修改的新值B。当且仅当预期值A和内存值V相同时，将内存值V修改为B，否则什么都不做。
+CAS通过调用JNI的代码实现的。JNI:Java Native Interface为JAVA本地调用，允许java调用其他语言。而 compareAndSwapInt 就是借助C来调用CPU底层指令实现的。
+
+
+20. Volatile 关键字的作用？
+多线程环境下保证共享变量的可见性和防止指令重排序。
+
+21. synchronized 实现原理？
+普通同步方法，锁是当前实例对象
+静态同步方法，锁是当前类的class对象
+同步方法块，锁是括号里面的对象
+同步代码块是使用monitorenter和monitorexit指令实现的，同步方法依靠的是方法修饰符上的ACC_SYNCHRONIZED实现。 
+
+22. Spring 中哪些类是单例的？
+GlobalAdvisorAdapterRegistry

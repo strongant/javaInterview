@@ -6,7 +6,18 @@ package com.strongant.thread;
  */
 public class ThreadTest {
 	public static void main(String[] args) {
+		//test();
+		long start  = System.currentTimeMillis();
+		try {
+			Thread.sleep(5_000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		long end  = System.currentTimeMillis();
+		System.out.println(end - start);
+	}
 
+	private static void test() {
 		// 覆盖 父类的 run 方法
 		Thread thread = new Thread() {
 			@Override
