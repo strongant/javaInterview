@@ -1,6 +1,7 @@
 # Java 面试总结
 
 1. 抽象类和接口的区别？
+
     1. 抽象类中可以包含抽象方法和非抽象方法，接口只能包含公开的抽象方法；
     2. 抽象类中的变量是各种类型的，而接口只能包含public abstract final 类型；
     3. 接口中不能含有静态代码块和静态方法，而抽象类中可以包含；
@@ -8,18 +9,21 @@
     5. 抽象类可以有构造方法，接口不能有；
 
 2. java中如何创建一个新线程？
+
     1. 实现 runnable 接口并重写 run 方法；
     2. 继承 Thread 类重写 run 方法；
     3. 实现 Callable 接口，重写 call() 方法；使用 FutureTask 类包装 Callable 对象，该 FutureTask 对象封装了该 Callable 对象的 call() 方法的返回值；
       使用 FutureTask 对象作为 Thread 对象的 target 创建并启动线程，调用 FutureTask 对象的 get() 方法获得子线程执行结束后的返回值；
 
 3. AIDL 是什么？ AIDL 支持的数据类型有哪些？
+
    Android 跨进程通信。AIDL 全称 Android Interface Definition Language（Android 接口描述语言）是一种借口描述语言; 
     编译器可以通过 aidl 文件生成一段代码，通过预先定义的接口达到两个进程内部通信进程跨界对象访问的目的。
     AIDL的 IPC 的机制和 COM 或 CORBA 类似, 是基于接口的，但它是轻量级的;
     AIDL支持的数据类型: String，list，map，all native java dataType
 
 4. 求计算1-2+3-4+5-6...的方法，n很大，考虑性能？
+
   答案：
 ```java
 public static  long fn(long n)
@@ -33,14 +37,11 @@ public static  long fn(long n)
             //由此得出规律应该为：(-1)*(n/2)+n =-n/2+n   或者 (n+1)/2
             //>>(右移)
             //操作数每右移一位，相当于该数除以2
-
-            System.out.println("error");
             return 0;
         }
         if(0==n%2)
             return (n>>1)*(-1);
         else{
-            System.out.println("aaa");
             return (n>>1)*(-1)+n;   //或者可以替换为(n+1)>>1;
         }
 
@@ -125,7 +126,7 @@ public class CallableTest {
 8. Git 中 fetch 和 pull 的区别是什么？
 
   git fetch：相当于是从远程获取最新版本到本地，不会自动 merge。
-  git pull：相当于是从远程获取最新版本并merge到本地。git fetch 和 git merge 在实际使用中，git fetch更安全一些。因为在merge前，我们可以查看更新情况，然后再决定是否合并结束。
+  git pull：相当于是从远程获取最新版本并merge到本地。git fetch 和 git merge 在实际使用中，git fetch 更安全一些。因为在 merge 前，我们可以查看更新情况，然后再决定是否合并结束。
 
 9. 线程的生命周期是什么？
 
