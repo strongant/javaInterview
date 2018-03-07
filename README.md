@@ -245,3 +245,50 @@ CAS通过调用JNI的代码实现的。JNI:Java Native Interface为JAVA本地调
 22. Spring 中哪些类是单例的？
 
 GlobalAdvisorAdapterRegistry
+
+23. Java 基本类型及范围
+
+byte：-128 - 127
+short: -2^15(-32768) - 2^15 - 1(32767)
+int: -2^31 - 2^31 - 1
+long：-2^63 - 2^63 -1
+float：默认值 0.0f
+double：0.0d
+boolean：true false
+char：\u0000（0） - \uffff（65535）
+
+24. 可以不可以自己写个String类？
+
+不可以，因为 根据类加载的双亲委派机制，会去加载父类，父类发现冲突了 String 就不再加载了;
+
+25. 什么是类加载器？
+
+负责读取 Java 字节代码，并转换成java.lang.Class类的一个实例
+
+26. 类加载器种类？
+
+启动类加载器，Bootstrap ClassLoader，加载JACA_HOME\lib，或者被-Xbootclasspath参数限定的类
+扩展类加载器，Extension ClassLoader，加载\lib\ext，或者被java.ext.dirs系统变量指定的类
+应用程序类加载器，Application ClassLoader，加载ClassPath中的类库
+自定义类加载器，通过继承ClassLoader实现，一般是加载我们的自定义类
+
+27. 什么是双亲委派模型？有什么优点？
+
+谓双亲委派是指每次收到类加载请求时，先将请求委派给父类加载器完成（所有加载请求最终会委派到顶层的Bootstrap ClassLoader加载器中），如果父类加载器无法完成这个加载（该加载器的搜索范围中没有找到对应的类），子类尝试自己加载。
+优点如下：
+* 避免同一个类被多次加载；
+* 每个加载器只能加载自己范围内的类；
+
+28. 类加载过程？
+
+加载--连接(准备、验证、解析3个部分统称为连接)--初始化--使用--卸载
+
+29. JVM 中的 Class 只有满足什么条件被回收？
+
+ - 该类所有的实例都已经被 GC，也就是 JVM 中不存在该 Class 的任何实例。
+ - 加载该类的 ClassLoader 已经被 GC。
+ - 该类的 java.lang.Class 对象没有在任何地方被引用，如不能在任何地方通过反射访问该类的方法
+
+
+
+
