@@ -16,7 +16,7 @@ public class Fibonacci {
 	public static void main(String[] args) {
 		//int result = fibonacci(100);
 		//long result = fib2(100);
-		long result = fib3(6);
+		long result = fib2(3);
 		System.out.println(result);
 	}
 
@@ -35,27 +35,41 @@ public class Fibonacci {
 	 * @return
 	 */
 	public static long fib2(int num) {
-		if (num > 0) {
-			//非递归
-			long[] array = new long[num + 1];
-			array[0] = 0;
-			array[1] = 1;
-			array[2] = 1;
-			for (int i = 3; i <= num; i++) {
-				array[i] = array[i - 1] + array[i - 2];
-			}
-			return array[num];
+		if (num < 0) {
+			return -1;
 		}
-		return 0;
+		if (num <= 1) {
+			return num;
+		}
+		if (num == 2) {
+			return 1;
+		}
+		long[] array = new long[num + 1];
+		array[0] = 0;
+		array[1] = 1;
+		array[2] = 1;
+		for (int i = 3; i <= num; i++) {
+			array[i] = array[i - 1] + array[i - 2];
+		}
+		return array[num];
 	}
 
 	/**
 	 * 斐波那契非递归实现另外一种计算思路
+	 * 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
+	 *
 	 * @param num
 	 * @return
 	 */
 	public static long fib3(long num) {
 		int n1 = 0, n2 = 1, n3, i;
+
+		if (num < 0) {
+			return -1;
+		}
+		if (num <= 1) {
+			return num;
+		}
 
 		for (i = 2; i < num; ++i) {
 			n3 = n1 + n2;
