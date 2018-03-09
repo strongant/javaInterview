@@ -15,7 +15,8 @@ package com.strongant.algorithm;
 public class Fibonacci {
 	public static void main(String[] args) {
 		//int result = fibonacci(100);
-		long result = fib2(100);
+		//long result = fib2(100);
+		long result = fib3(6);
 		System.out.println(result);
 	}
 
@@ -48,5 +49,20 @@ public class Fibonacci {
 		return 0;
 	}
 
+	/**
+	 * 斐波那契非递归实现另外一种计算思路
+	 * @param num
+	 * @return
+	 */
+	public static long fib3(long num) {
+		int n1 = 0, n2 = 1, n3, i;
+
+		for (i = 2; i < num; ++i) {
+			n3 = n1 + n2;
+			n1 = n2;
+			n2 = n3;
+		}
+		return n1 + n2;
+	}
 
 }
