@@ -16,6 +16,9 @@ public class LinkedListReverse {
 
         ListNode t = initListNode(count, count);
 
+        printLinkedList(t);
+        System.out.println("-----未反转单链表前-----");
+
         ListNode t1 = reverse(t);
 
         printLinkedList(t1);
