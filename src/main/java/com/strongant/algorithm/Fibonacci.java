@@ -1,5 +1,8 @@
 package com.strongant.algorithm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 斐波那契数列实现
  * 数组规律 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
@@ -16,8 +19,13 @@ public class Fibonacci {
 	public static void main(String[] args) {
 		//int result = fibonacci(100);
 		//long result = fib2(100);
-		long result = fib2(3);
-		System.out.println(result);
+		List<Long> results = new ArrayList<>();
+		int max = 100;
+		for (int i = -3; i < max; i++) {
+			long result = fib3(i);
+			results.add(result);
+		}
+		System.out.println(results);
 	}
 
 	// 递归实现 时间复杂度  O(2^N)
