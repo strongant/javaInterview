@@ -31,7 +31,7 @@ public class AnnotationClientTest {
             if (hasAnnotation) {
                 //根据注解类型返回方法的指定类型注解
                 Test annotation = method.getAnnotation(Test.class);
-                System.out.println("Test(method=" + method.getName() + ",id=" + annotation.id()
+                System.out.println("PrintOddEvenPlus(method=" + method.getName() + ",id=" + annotation.id()
                         + ",description=" + annotation.description() + ")");
             }
         }

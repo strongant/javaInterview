@@ -181,25 +181,7 @@ public class BaseTest {
         }
     }
 
-    private static void toIntExact() {
-        try {
-            Math.toIntExact(Long.MAX_VALUE);
-        }
-        catch (ArithmeticException e) {
-            System.err.println(e.getMessage());
-            // => integer overflow
-        }
-    }
 
-    private static void integerOverflow() {
-        try {
-            Math.addExact(Integer.MAX_VALUE, 1);
-        }
-        catch (ArithmeticException e) {
-            System.err.println(e.getMessage());
-            // => integer overflow
-        }
-    }
 
     private static void toUnsignedString() {
         long maxUnsignedInt = (1l << 32) - 1;
