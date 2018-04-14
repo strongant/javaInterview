@@ -63,8 +63,8 @@ public class BaseTest {
 
         //reflectiveOperationException();
 
-        LocalDateTime localDate = LocalDateTime.now();
-        System.out.println(localDate);
+        /*LocalDateTime localDate = LocalDateTime.now();
+        System.out.println(localDate);*/
 
     }
 
