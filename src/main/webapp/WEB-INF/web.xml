@@ -5,6 +5,16 @@
 <servlet-class>com.strongant.web.servlet.HelloWorldServlet</servlet-class>
 </servlet>
 
+
+    <servlet>
+        <servlet-name>DispatchServlet</servlet-name>
+        <servlet-class>com.strongant.framework.servlet.DispatchServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfiguration</param-name>
+            <param-values>classpath:application.properties</param-values>
+        </init-param>
+    </servlet>
+
 <servlet-mapping>
 <servlet-name>sonoojaiswal</servlet-name>
 <url-pattern>/welcome</url-pattern>

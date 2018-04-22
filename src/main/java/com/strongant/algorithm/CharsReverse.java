@@ -8,21 +8,23 @@ package com.strongant.algorithm;
  */
 public class CharsReverse {
 	public static void main(String[] args) {
-		char[] chars = {'a', 'b', 'c'};
-		reverse(chars);
-		for (char aChar : chars) {
-			System.out.println(aChar);
-		}
+		String origin = "abcde";
+		String result = reverse(origin);
+		System.out.println(result);
 	}
 
-	public static void reverse(char[] chars) {
-		if (chars != null && chars.length > 0) {
-			int len = chars.length - 1, middle = len / 2;
-			for (int i = 0; i < middle; i++) {
-				final char temp = chars[len - i];
-				chars[len - i] = chars[i];
-				chars[i] = temp;
-			}
+	public static String reverse(String str) {
+		if (null == str || str.length() == 0) {
+			return str;
 		}
+		char[] array = str.toCharArray();
+		int end = str.length() - 1;
+		int halfLength = end / 2;
+		for (int i = 0; i <= halfLength; i++) {
+			char temp = array[i];
+			array[i] = array[end-i];
+			array[end-i] = temp;
+		}
+		return new String(array);
 	}
 }
