@@ -1,9 +1,9 @@
 <web-app>
 
-<servlet>
-<servlet-name>HelloWorld</servlet-name>
-<servlet-class>com.strongant.web.servlet.HelloWorldServlet</servlet-class>
-</servlet>
+    <servlet>
+        <servlet-name>HelloWorld</servlet-name>
+        <servlet-class>com.strongant.web.servlet.HelloWorldServlet</servlet-class>
+    </servlet>
 
 
     <servlet>
@@ -15,9 +15,9 @@
         </init-param>
     </servlet>
 
-<servlet-mapping>
-<servlet-name>sonoojaiswal</servlet-name>
-<url-pattern>/welcome</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sonoojaiswal</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
 </web-app>

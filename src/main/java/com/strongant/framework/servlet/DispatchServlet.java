@@ -42,7 +42,6 @@ public class DispatchServlet extends HttpServlet {
 
 		// 开始初始化的方法
 
-
 		// 定位
 		doLoadConfig();
 
